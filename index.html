@@ -33,8 +33,8 @@
           <div>
             <p>Join my free newsletter to get weekly tips & tricks on coercing your human to give you treats. No spam,
               ever.</p>
-            <form>
-              <input type="email" placeholder="Email address" required>
+            <form id="subscribe-form">
+              <input type="email" name='email' placeholder="Email address" required>
               <button type="submit">Subscribe</button>
             </form>
           </div>
@@ -124,7 +124,7 @@
         <p>
           If you want to contact me, fill out the form below. Please keep in mind I only respond to catnip offers.
         </p>
-        <form border="1">
+        <form id="contact-form">
           <input name="name" type="text" placeholder="Name" required>
           <input name="email" type="email" placeholder="Email" required>
           <textarea name="message" placeholder="Message" required></textarea>
@@ -133,7 +133,7 @@
       </div>
     </section>
 
-    <a href="#top">
+    <a href="#top" id="back-to-top">
       <div class="back-to-top">
         Back to top
       </div>
