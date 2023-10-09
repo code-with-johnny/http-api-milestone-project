@@ -1,15 +1,15 @@
-# JS Milestone Project
+# HTTP & API Milestone Project
 
-A JavaScript project template for the software developer roadmap.
+An HTTP & API project template for the software developer roadmap.
 
-We return to Joseph The Cat's portfolio to improve the user experience and handle form submissions. We also get crafty with node.js to do a little web scraping.
+We return to Joseph The Cat's portfolio to improve the user experience and handle form submissions.
 
 ## Getting Started
 
 To get started on this project, run the following command in your terminal.
 
 ```
-git clone git@github.com:code-with-johnny/js-milestone-project.git && cd js-milestone-project
+git clone git@github.com:code-with-johnny/http-api-milestone-project.git && cd http-api-milestone-project
 ```
 
 Run the `npm install` command to install the project's dependencies.
