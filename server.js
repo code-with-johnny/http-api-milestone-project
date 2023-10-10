@@ -1,15 +1,14 @@
-const express = require("express");
+import express from "express";
+import cors from "cors";
+import { catData } from "./constants.js";
 const app = express();
 const port = 8080;
 
-const catData = {
-  joseph: {
-    age: 4,
-    // TODO: fill
-  },
-};
+app.use(cors());
 
-app.get("/cat-data", (req, res) => {});
+app.get("/cat-data", (req, res) => {
+  return res.send(catData);
+});
 
 app.post("/email-subscribe", (req, res) => {});
 
