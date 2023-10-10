@@ -1,5 +1,7 @@
+import { API_URL } from "../constants.js";
+
 const fetchCatData = async () => {
-  const response = await axios.get("http://localhost:8080/cat-data");
+  const response = await axios.get(`${API_URL}/cat-data`);
   return response.data;
 };
 

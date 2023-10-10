@@ -1,3 +1,5 @@
+import { API_URL } from "../constants.js";
+
 const subscribeForm = document.getElementById("subscribe-form");
 const contactForm = document.getElementById("contact-form");
 
