@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import { catData } from "./constants.js";
+import catData from "./cat-data.json" assert { type: "json" };
 const app = express();
 const port = 8080;
 
