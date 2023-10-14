@@ -2,7 +2,7 @@
 
 An HTTP & API project template for the software developer roadmap.
 
-We return to Joseph The Cat's portfolio to improve the user experience and handle form submissions.
+We return to Joseph The Cat's portfolio to create make some HTTP requests to our own API, built with express.
 
 ## Getting Started
 
@@ -14,23 +14,26 @@ git clone git@github.com:code-with-johnny/http-api-milestone-project.git && cd h
 
 Run the `npm install` command to install the project's dependencies.
 
-If you open up the project in vscode, you should see a folder called `scripts` which contains two JavaScript files, `form-handlers.js` and `smooth-scroll.js`. These files will need to be linked to the index.html (for you to figure out how to do). Take note of _when_ your JavaScript files load after you've linked them to the html. Usually, you want the script to load _after_ the html is finished rendering.
+If you open up the project in vscode, you should see three new files: `fetch-cat-data.js` in the `scripts` directory, and `server.js` and `cat-data.json` in the root directory. The new `js` file is already linked to `index.html`.
 
-To run your web scraper, run `node scraper.js` in your terminal.
+We'll be running the web page as usual, but now that we also have an API, there's a script added to the `package.json` that will allow us to start our server with the `npm start` command. At the moment though, the command does nothing as there's no code in `server.js`. That part is for you to complete.
 
 ## Requirements
 
-1. You are going to add smooth scroll animations to all the links on the page from our previous project. This means all the navbar links as well as the "back to top" button. The behaviour is the same, the links just take us to a certain part of the page. But instead of instantaneously taking us to the link target, there will be a nice smooth scroll animation.
-2. All form submissions on the page should be handled with JavaScript. When a form is submitted, capture the details and use JavaScript's built-in `alert` function to alert the user that their form has been submitted successfully with said details.
-3. You're going to build a web scraper in the `scraper.js` file. The scraper should utilize the `puppeteer` library to scrape your web page and fetch all the details from the cat comparison table. It should also utilize the `table` library to display the contents nicely in the terminal. The scraper should periodically log updates to the terminal to let the user know that the application is still running. It should look something like this:![Scraper Result](./assets/img/scraper-result.png)
+1. Your API (server.js) needs to have three endpoints (routes). The base url for your API is http://localhost:8080 (or whatever port number you choose, should be different than the one you're using to run the web page in the browser).
+   1. The first route will be `$BASE_URL/cat-data`. This route should accept a GET request and respond with the array of cat objects from `cat-data.json`. The json file can be loaded and parsed using the built-in `fs` module and `JSON` object.
+   2. The second route is `$BASE_URL/email-subscribe`. This route will accept a POST request and respond to the client with a 400 status code if there is no email address in the request body, otherwise a 200 response will be sent back.
+   3. The third route is `$BASE_URL/contact`. This route will accept a POST request and repsond to the client with a 400 status code if there is no message, name, or email address in the request body, otherwise a 200 response will be sent back.
+2. Instead of hard-coding all the cat data in your html file, you will now use the `fetch-cat-data.js` to make a GET request to your `/cat-data` endpoint using axios (axios isn't in the `package.json`'s dependencies because it's being loaded as an external script in the html file). Once you've received the cat data from the API, you will then populate the cat comparison table with that data using javascript (`document.createElement` will be your friend here).
+3. In your `form-handlers.js` file, once a form is submitted, an alert is shown to the user with information about their form submission. From a user's perspective, nothing will change, you'll still show them the alert. However, behind the scenes, you're first going to make a POST request to the respective endpoint for each form, and only upon receiving a successful response (200 status code) will you alert the user.
 
 ## Example
 
-GIFs are too large to be stored in this repo. You can [click here](https://www.youtube.com/watch?v=KuxQ5KrWamo&ab_channel=CodeWithJohnny) to see an example of what the project should look like.
+No example video for this project as everything looks the same from a user perspective as the previous project (`js-milestone-project`).
 
 ## Solution
 
-If you're having trouble completing this project or you want to compare your solution to the example above then you can view the solution.
+If you're having trouble completing this project or you want to compare your solution to mine then you can view the solution.
 
 You'll need to use git and switch to a branch named `solution`.
 
@@ -39,7 +42,7 @@ git fetch --all
 git checkout solution
 ```
 
-Once you do that, your code editor should update and you can view the `scripts` directory, the `scraper.js` file, and the udpated `index.html` file.
+Once you do that, your code editor should update and you can view the `fetch-cat-data.js` and `form-handlers.js` files, as well as the API logic in `server.js`.
 
 Please only do this if you've given it your best shot, otherwise you're only cheating yourself.
 
