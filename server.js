@@ -9,9 +9,7 @@ const port = 8080;
 app.use(cors());
 app.use(express.json());
 
-app.get("/cat-data", (_, res) => {
-  return res.send(catData);
-});
+app.get("/cat-data", (_, res) => res.send(catData));
 
 app.post("/email-subscribe", (req, res) => {
   const { email } = req.body;
