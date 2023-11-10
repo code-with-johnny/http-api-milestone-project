@@ -43,7 +43,10 @@ import { API_URL } from "../constants.js";
 
       tbody.appendChild(tr);
     });
-  } catch (err) {}
+  } catch (err) {
+    table.removeChild(table.querySelector(".loading"));
+    table.appendChild(errorMessage());
+  }
 })();
 
 async function fetchCatData() {
@@ -56,6 +59,13 @@ function loadingIndicator() {
   loading.innerText = "Loading data...";
   loading.classList.add("loading");
   return loading;
+}
+
+function errorMessage() {
+  const error = document.createElement("div");
+  error.innerText = "Whoops! An error occurred while fetching the data.";
+  error.classList.add("error");
+  return error;
 }
 
 function formatCamelCase(inputString) {
